@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://pxrrrrqtd5js"]
+[gd_scene load_steps=26 format=3 uid="uid://pxrrrrqtd5js"]
 
 [ext_resource type="Script" path="res://character/scripts/character.gd" id="1_kxaao"]
 [ext_resource type="Texture2D" uid="uid://d4mnmhkamf577" path="res://assets/characters/player.png" id="2_ebxk8"]
@@ -373,9 +373,51 @@ tracks/2/keys = {
 "values": [30, 31, 32, 33, 34, 35]
 }
 
+[sub_resource type="Animation" id="Animation_agm3j"]
+resource_name = "atack_walk_dow"
+length = 0.55
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [36, 36, 37, 38, 39, 40]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Texture:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Texture:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.5, -17)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6et5a"]
 _data = {
 "RESET": SubResource("Animation_p85h4"),
+"atack_walk_dow": SubResource("Animation_agm3j"),
 "idle_down": SubResource("Animation_tc6y2"),
 "idle_left": SubResource("Animation_xgl3v"),
 "idle_right": SubResource("Animation_aipqt"),
