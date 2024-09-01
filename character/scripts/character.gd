@@ -1,5 +1,9 @@
 extends CharacterBody2D
+
+
 var _state_machine
+var _is_attacking: bool = false
+
 @export_category("Variables")
 @export var _move_speed: float = 64.0
 @export var _friction: float = 0.2
@@ -7,6 +11,7 @@ var _state_machine
 
 @export_category("Objects")
 @export var _animation_tree: AnimationTree = null
+@export var _attack_timer: Timer = null
 
 func _ready() -> void:
 	_state_machine = _animation_tree["parameters/playback"] 
@@ -16,6 +21,7 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	_move()
+	_attack()
 	_animate()
 	move_and_slide()
 	
@@ -28,6 +34,8 @@ func _move() -> void:
 	if _direction != Vector2.ZERO:
 		_animation_tree["parameters/idle/blend_position"] = _direction
 		_animation_tree["parameters/walk/blend_position"] = _direction
+		_animation_tree["parameters/attack/blend_position"] = _direction
+		
 		velocity.x = lerp(velocity.x, _direction.normalized().x * _move_speed, _aceleration)
 		velocity.y = lerp(velocity.y, _direction.normalized().y * _move_speed, _aceleration)
 		return
@@ -36,9 +44,30 @@ func _move() -> void:
 	velocity.x = lerp(velocity.x, _direction.normalized().x * _move_speed, _friction)
 	velocity.y = lerp(velocity.y, _direction.normalized().y * _move_speed, _friction)
 	
-	
+func _attack() -> void:
+	if Input.is_action_just_pressed("attack") and not _is_attacking:
+		set_physics_process(false) #parando animação de andar
+		_attack_timer.start()
+		_is_attacking = true
+		print("atacando ")
+	else: 
+		print("ação de atack nao executada")
+		
+		
 func _animate() -> void:
+	if _is_attacking == true:
+		_state_machine.travel("attack")
+		print("animação de atack evocada")
+		return
+		
 	if velocity.length() > 10:
 		_state_machine.travel("walk")
+		print("animação de de andar evocada")
 		return
+		
 	_state_machine.travel("idle")
+
+
+func _on_attack_timer_timeout():
+	set_physics_process(true) #voltando animação de andar apos atack
+	_is_attacking = false
