@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkyr7aj3usa37"
-path="res://.godot/imported/walls.png-24bb65e9a0eec228936bdb727816967c.ctex"
+uid="uid://b31x8vt1fa3n6"
+path="res://.godot/imported/wooden_door_b.png-2798029a21470ccf485e8a3b0819b19f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/walls/walls.png"
-dest_files=["res://.godot/imported/walls.png-24bb65e9a0eec228936bdb727816967c.ctex"]
+source_file="res://terrain/assets/interior/wooden_door_b.png"
+dest_files=["res://.godot/imported/wooden_door_b.png-2798029a21470ccf485e8a3b0819b19f.ctex"]
 
 [params]
 
