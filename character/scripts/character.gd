@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Character
 
 var _state_machine
 var _is_attacking: bool = false
@@ -49,20 +49,20 @@ func _attack() -> void:
 		set_physics_process(false) #parando animação de andar
 		_attack_timer.start()
 		_is_attacking = true
-		print("atacando ")
+		#print("atacando ")
 	else: 
-		print("ação de atack nao executada")
-		
+		#print("ação de atack nao executada")
+		pass
 		
 func _animate() -> void:
 	if _is_attacking == true:
 		_state_machine.travel("attack")
-		print("animação de atack evocada")
+		#print("animação de atack evocada")
 		return
 		
 	if velocity.length() > 10:
 		_state_machine.travel("walk")
-		print("animação de de andar evocada")
+		#print("animação de de andar evocada")
 		return
 		
 	_state_machine.travel("idle")
