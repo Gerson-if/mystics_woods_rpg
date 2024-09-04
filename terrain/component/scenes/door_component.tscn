@@ -1,10 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwgwlkutio4vf"]
+[gd_scene load_steps=8 format=3 uid="uid://cwgwlkutio4vf"]
 
 [ext_resource type="Texture2D" uid="uid://b31x8vt1fa3n6" path="res://terrain/assets/interior/wooden_door_b.png" id="1_nqpey"]
 [ext_resource type="Script" path="res://terrain/component/scripts/door_component.gd" id="1_pqvqt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i212m"]
 size = Vector2(36, 13)
+
+[sub_resource type="Animation" id="Animation_u511h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_ymmj0"]
 resource_name = "open"
@@ -22,8 +37,9 @@ tracks/0/keys = {
 "values": [0, 1]
 }
 
-[sub_resource type="Animation" id="Animation_u511h"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_ycsrd"]
+resource_name = "close"
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -31,15 +47,16 @@ tracks/0/path = NodePath("Textura:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0]
+"values": [1, 0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x6w0b"]
 _data = {
 "RESET": SubResource("Animation_u511h"),
+"close": SubResource("Animation_ycsrd"),
 "open": SubResource("Animation_ymmj0")
 }
 

@@ -1,5 +1,5 @@
 extends Area2D
-class_name  DoorComponet
+class_name  DoorComponetHouse
 
 var _player_ref: Character = null
 
@@ -21,6 +21,5 @@ func _on_body_entered(body) -> void:
 func _on_animation_animation_finished(anim_name: String) -> void:
 	if anim_name == "open": 
 		_player_ref.global_position = _teleport_position
-		_animation.play("close")
 		
 	

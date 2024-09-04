@@ -5,9 +5,14 @@
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfwih"]
 texture = ExtResource("2_ljn5v")
+0:0/next_alternative_id = 2
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/1 = 1
+0:0/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/1/physics_layer_0/angular_velocity = 0.0
+0:0/1/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27q4b"]
 texture = ExtResource("2_sweat")
@@ -148,3 +153,6 @@ layer_0/name = "wals_layer"
 layer_0/z_index = 1
 layer_1/name = "wooden_layer"
 layer_1/tile_data = PackedInt32Array()
+layer_2/name = "wall_layer_ivisible"
+layer_2/modulate = Color(1, 1, 1, 0)
+layer_2/tile_data = PackedInt32Array()
